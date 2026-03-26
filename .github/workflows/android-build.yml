@@ -1,7 +1,7 @@
 name: Android Build
 
-# permissions:
-#   contents: write
+permissions:
+  contents: write
 
 on:
   # push:
