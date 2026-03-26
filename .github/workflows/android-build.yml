@@ -75,7 +75,11 @@ jobs:
 
       - name: Build thirdParty Release APK
         working-directory: ./apps/android
-        run: ./gradlew :app:assembleThirdPartyRelease --parallel --build-cache --configure-on-demand --no-daemon
+        run: |
+          cat apps/android/app/keystore.jks
+          cat ~/.gradle/gradle.properties
+          cat ${GITHUB_WORKSPACE}/apps/android/app/keystore.jks
+          ./gradlew :app:assembleThirdPartyRelease --parallel --build-cache --configure-on-demand --no-daemon --info
 
       # - name: Prepare Release APK
       #   id: apk
