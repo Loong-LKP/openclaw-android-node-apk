@@ -63,7 +63,7 @@ jobs:
 
       - name: Decode Keystore
         run: |
-          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > ${GITHUB_WORKSPACE}/apps/android/app/keystore.jks
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > apps/android/app/keystore.jks
 
       - name: Setup Gradle Properties
         run: |
@@ -75,11 +75,7 @@ jobs:
 
       - name: Build thirdParty Release APK
         working-directory: ./apps/android
-        run: |
-          cat /home/runner/work/openclaw-android-node-apk/openclaw-android-node-apk/apps/android/app/keystore.jks
-          ls -l ${GITHUB_WORKSPACE}/apps/android/app/keystore.jks
-          cat ${GITHUB_WORKSPACE}/apps/android/app/keystore.jks
-          ./gradlew :app:assembleThirdPartyRelease --parallel --build-cache --configure-on-demand --no-daemon --info
+        run: ./gradlew :app:assembleThirdPartyRelease --parallel --build-cache --configure-on-demand --no-daemon --info
 
       # - name: Prepare Release APK
       #   id: apk
