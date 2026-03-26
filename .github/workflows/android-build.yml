@@ -68,8 +68,6 @@ jobs:
       - name: Setup Gradle Properties
         run: |
           mkdir -p ~/.gradle
-          cat ${GITHUB_WORKSPACE}/apps/android/app/keystore.jks
-          cat /home/runner/work/openclaw-android-node-apk/openclaw-android-node-apk/apps/android/app/keystore.jks
           echo "OPENCLAW_ANDROID_STORE_FILE=${GITHUB_WORKSPACE}/apps/android/app/keystore.jks" >> ~/.gradle/gradle.properties
           echo "OPENCLAW_ANDROID_STORE_PASSWORD=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" >> ~/.gradle/gradle.properties
           echo "OPENCLAW_ANDROID_KEY_ALIAS=${{ secrets.ANDROID_KEY_ALIAS }}" >> ~/.gradle/gradle.properties
@@ -78,7 +76,9 @@ jobs:
       - name: Build thirdParty Release APK
         working-directory: ./apps/android
         run: |
+          cat /home/runner/work/openclaw-android-node-apk/openclaw-android-node-apk/apps/android/app/keystore.jks
           ls -l ${GITHUB_WORKSPACE}/apps/android/app/keystore.jks
+          cat ${GITHUB_WORKSPACE}/apps/android/app/keystore.jks
           ./gradlew :app:assembleThirdPartyRelease --parallel --build-cache --configure-on-demand --no-daemon --info
 
       # - name: Prepare Release APK
