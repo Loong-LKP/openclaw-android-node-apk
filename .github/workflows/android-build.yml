@@ -1,14 +1,14 @@
 name: Android Build
 
-permissions:
-  contents: write
+# permissions:
+#   contents: write
 
 on:
-  push:
-    branches: [ "main" ]
-    paths:
-      - 'apps/android/**'
-      - 'apps/shared/**'
+  # push:
+  #   branches: [ "main" ]
+  #   paths:
+  #     - 'apps/android/**'
+  #     - 'apps/shared/**'
   workflow_dispatch:
 
 jobs:
