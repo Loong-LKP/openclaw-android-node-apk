@@ -107,7 +107,7 @@ jobs:
         with:
           name: openclaw-android-apk
           # path: ${{ steps.apk.outputs.apk_path }}
-          path: apps/android/app/build/outputs/apk/debug/*.apk
+          path: apps/android/app/build/outputs/apk/thirdParty/debug/*.apk
 
       # - name: Generate Build Variables
       #   id: vars
