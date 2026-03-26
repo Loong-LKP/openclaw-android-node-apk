@@ -68,7 +68,7 @@ jobs:
       - name: Setup Gradle Properties
         run: |
           mkdir -p ~/.gradle
-          echo "OPENCLAW_ANDROID_STORE_FILE=apps/android/app/keystore.jks" >> ~/.gradle/gradle.properties
+          echo "OPENCLAW_ANDROID_STORE_FILE=${GITHUB_WORKSPACE}/apps/android/app/keystore.jks" >> ~/.gradle/gradle.properties
           echo "OPENCLAW_ANDROID_STORE_PASSWORD=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" >> ~/.gradle/gradle.properties
           echo "OPENCLAW_ANDROID_KEY_ALIAS=${{ secrets.ANDROID_KEY_ALIAS }}" >> ~/.gradle/gradle.properties
           echo "OPENCLAW_ANDROID_KEY_PASSWORD=${{ secrets.ANDROID_KEY_PASSWORD }}" >> ~/.gradle/gradle.properties
